@@ -46,7 +46,7 @@ var education = {
 	"schools": [
 		{
 			"name": "Jawaharlal Nehru Technological University",
-			"location": "Hyderabad, Telangana",
+			"location": "Hyderabad, India",
 			"degree": "Bachelors",
 			"majors": ["Computer Science Engineering"],
 			"dates": 2009,
@@ -55,7 +55,7 @@ var education = {
 		},
 		{
 			"name": "Nalanda Junior College",
-			"location": "Hyderabad, Telangana",
+			"location": "Hyderabad, India",
 			"degree": "Intermediate",
 			"majors": ["Math", "Physics", "Chemistry"],
 			"dates": 2005,
@@ -131,3 +131,44 @@ var education = {
 };
 
 education.display();
+
+var work = {
+	"jobs": [
+		{
+			"employer": "Udacity",
+			"title": "Web Developer",
+			"dates": "2015 October - Future",
+			"location": "Mountain View, California",
+			"description": "Bacon ipsum dolor amet turducken ball tip pork tenderloin. Beef ribs biltong tri-tip jowl ground round flank, alcatra pastrami filet mignon rump pork chop bacon picanha. Shoulder landjaeger spare ribs tail capicola, flank chicken short loin pork chop meatloaf andouille sausage shankle filet mignon ribeye. Spare ribs pig alcatra kevin rump shank pastrami jowl boudin turkey strip steak turducken ball tip corned beef flank. Boudin shankle beef ribs andouille. Cupim strip steak beef ribs kevin, frankfurter jowl andouille pork belly brisket."
+		},
+		{
+			"employer": "Swecha",
+			"title": "Fashion Designer",
+			"dates": "2013 March - 2013 December",
+			"location": "Hyderabad, India",
+			"description": "Extremely passionate about designing Ethnic Indian wear, I opened my own Boutique - Swecha, which reflects freedom where I created and crafted designs for various customers."
+		},
+		{
+			"employer": "Infosys Technologies Limited",
+			"title": "Unix and HP Extreme Developer",
+			"dates": "2010 February - 2013 February",
+			"location": "Hyderabad, India",
+			"description": "Infosys is a global leader in consulting, technology, and outsourcing and next-generation services. Infosys enable clients in more than 50 countries to outperform the competition and stay ahead of the innovation curve. With 187,000+ employees, Infosys helps enterprises renew themselves while also creating new avenues to generate value. <br><br> As a Unix Developer, I was involved in developing company wide communications like letters, Credit Card Statements, Offers and coupons for various financial client like Capital One, Charles Schwab and Bank of America."
+		},
+	],
+	// TODO: Include display() function
+	"display": function () {
+		for(job in work.jobs) {
+			$("#workExperience").append(HTMLworkStart);
+
+			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle).append(formattedWorkLocation).append(formattedWorkDates).append(formattedWorkDescription);
+		}
+	}
+};
+
+work.display();
