@@ -9,7 +9,7 @@ var bio = {
 		"location": "San Jose"
 	},
 	"welcomeMessage": "Hi, my name is Harika. I love creating beautiful & functional user experiences. As a graduate of Computer Science Technology with 3 years experience working in various roles, I have a wide range of skills. I am very passionate about web development and want to become a Front End Developer who focuses on writing clean, elegant and efficient code. Love HTML, CSS and a touch of jQuery.<br><br> When I am not coding or pushing pixels you will find me painting, sketching, playing Mortal Combat on PS4 or googling around interesting stuff.",
-	"skills": ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap", "Shell scripting", "Shell scripting", "SQL", "PL/SQL"],
+	"skills": ["HTML5", "CSS3", "Javascript", "jQuery", "Bootstrap", "Shell scripting", "SQL", "PL/SQL"],
 	"bioPic": "images/avatar.jpg",
 	// TODO: Implement display function
 	"display": function() {
@@ -147,7 +147,7 @@ var work = {
 			"title": "Fashion Designer",
 			"dates": "2013 March - 2013 December",
 			"location": "Hyderabad, India",
-			"description": "Extremely passionate about designing Ethnic Indian wear, I opened my own Boutique - Swecha, which reflects freedom where I created and crafted designs for various customers."
+			"description": "Extremely passionate about designing Ethnic Indian wear, I opened my own Boutique - Swecha, where I created and crafted designs for various customers.<br><br> Swecha means freedom, and I want to celebrate freedom through my designs and collection that I make to touch hearts."
 		},
 		{
 			"employer": "Infosys Technologies Limited",
@@ -207,7 +207,7 @@ var projects = {
 			"title": "Capital One : Enterprise Fulfillment IT (EFIT)",
 			"dates": "2011 January - 2013 February",
 			"description": "EFIT is an Outbound application that creates monthly, quarterly and yearly Statements, Offers and Letters for Capital One customers. Outbound applications are critical regulatory applications for Capital One wherein all the customer communications must be delivered within specific days of generation. Outbound applications extract the required data from the upstream Capital One applications and formats into the customer communications using 3rd party formatting Dialog tool. This project involves Design, Development, Maintenance, Enhancement and Production Support.",
-			"url": "https://github.com/HarikaShekhar/FE-Nanodegree-Project-0",
+			"url": "#home",
 			// TODO: Update Images
 			"images": [
 				"images/capitalOne-1.png",
@@ -219,7 +219,7 @@ var projects = {
 			"title": "Charles Schwab : CRT Letters  development, maintenance and Support",
 			"dates": "2010 February - 2010 December",
 			"description": "Client Reporting Technology is a batch application that creates monthly, quarterly and yearly brokerage Letters for Schwab customers. It is hosted on the IBM Mainframe. Letters applications is one of the critical regulatory applications for Schwab wherein all the customer letters must be delivered within 7 days of generation. Letters extract the required data from the upstream Schwab applications and formats into the customer letters using 3rd party formatting tools — DOC1 and Dialogue. This project involves providing Maintenance, Enhancement and Production Support for the statement application. <br><br>It is a multi-tier project. It has different platforms involved such as UNIX/LINUX, Mainframes and different technologies such as JAVA, bash Scripting, COBOL.",
-			"url": "https://github.com/HarikaShekhar/FE-Nanodegree-Project-0",
+			"url": "#home",
 			// TODO: Update Images
 			"images": [
 				"images/charlesSchwab-1.png",
@@ -254,3 +254,12 @@ $("#contacts").click(function(){
 $("#skills-btn").click(function(){
 	$("#skills-h3, #skills").fadeToggle("slow");
 });
+
+$("#letsConnect").append(internationalizeButton);
+
+function inName() {
+	var internationalName = bio.name.trim().split(" ");
+	return internationalName[0][0].toUpperCase() + internationalName[0].slice(1).toLowerCase() + " " + internationalName[1].toUpperCase();
+}
+
+$("#mapDiv").append(googleMap);
