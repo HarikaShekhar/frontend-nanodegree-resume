@@ -14,6 +14,14 @@ h6 {
   font-family: "Titillium Web", sans-serif;
 }
 
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
   padding-top: 60px;
 }
@@ -34,8 +42,66 @@ body {
   height: 100%;
 }
 
+#main {
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#header {
+  background-color: #383838;
+}
+
+#projects {
+  background-color: #F3F3F3;
+}
+
 .navbar-brand {
   font-family: "Lobster";
+  font-size: 2em;
+}
+
+.navbar-inverse .container-fluid .navbar-header>a,
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff;
+}
+
+.navbar-inverse .container-fluid .navbar-header>a:hover,
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #9d9d9d;
+}
+
+.cover-arrow {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  outline: none;
+}
+
+
+.glyphicon-chevron-down {
+    font-size: 7em;
+    opacity: 0.8;
+    color: orange;
+    text-shadow: 2px 7px 7px #000;
+    line-height: 1;
+}
+
+hr,
+#topContacts,
+.biopic,
+.welcome-message,
+#skillsH3,
+#skills,
+.scrollfade {
+  opacity: 0;
 }
 
 .clear-fix {
@@ -203,29 +269,42 @@ span {
   margin-right: 0;
 }
 
-#letsConnect {
-  text-align: center;
-}
-
 .center-text {
   margin-top: 0;
 }
 
+#letsConnect {
+  clear: both;
+  text-align: center;
+  /*margin-top: 1%;*/
+}
+
 #map {
-  display: block;
-  height: 90%;
-  margin: 0 5%;
+  height: 100%;
+  max-height: 90%;
+  /*width: 100%;*/
+  /*border: 2px solid green;*/
 }
 
 #mapDiv {
+  /*border: 1px solid red;*/
   height: 400px;
-  width: 100%;
-  padding-bottom: 8%;
+  padding-bottom: 30px;
+  /*overflow: contain;*/
+}
+
+#mapDiv h2 {
+  color: #fff;
 }
 
 .btn-success,
 .btn-danger {
   margin: 10px 20px;
+}
+
+#contacts,
+#skills-btn {
+  opacity: 0;
 }
 
 .collapsed-footer,
@@ -259,17 +338,31 @@ span {
     width: 175px;
   }
 
+  .welcome-message {
+    font-size: 1em;
+  }
+
   .project-image {
     width: 50%;
     margin: auto;
     padding: 10px;
   }
+
+  .glyphicon-chevron-down {
+    font-size: 2em;
+  }
 }
 
 @media only screen and (max-width: 750px) {
-  .biopic,
+  /*.biopic,
   .welcome-message {
     display: none;
+  }*/
+
+  .welcome-message {
+    display: block;
+    margin: 10px auto;
+    font-size: 1em;
   }
 
   .project-image {
@@ -278,9 +371,9 @@ span {
     padding: 10px;
   }
 
-  #topContacts li:first-of-type {
+/*  #topContacts li:first-of-type {
     margin-top: 60px;
-  }
+  }*/
 
 
   #topContacts,
@@ -330,8 +423,8 @@ span {
 
 }
 
-@media only screen and (max-width: 700px) {
+/*@media only screen and (max-width: 700px) {
   #mapDiv {
     padding-bottom: 20%;
   }
-}
+}*/
