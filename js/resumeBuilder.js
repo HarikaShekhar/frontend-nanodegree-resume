@@ -37,6 +37,7 @@ var bio = {
 		};
 		$("#skills-h3").before(formattedBioPic);
 		$(".biopic").after(formattedWelcomeMessage);
+		$("#header").append(HTMLglyphicon);
 	} //display() ends here
 };
 // Call display() function to display bio information
@@ -207,7 +208,7 @@ var projects = {
 			"title": "Capital One : Enterprise Fulfillment IT (EFIT)",
 			"dates": "2011 January - 2013 February",
 			"description": "EFIT is an Outbound application that creates monthly, quarterly and yearly Statements, Offers and Letters for Capital One customers. Outbound applications are critical regulatory applications for Capital One wherein all the customer communications must be delivered within specific days of generation. Outbound applications extract the required data from the upstream Capital One applications and formats into the customer communications using 3rd party formatting Dialog tool. This project involves Design, Development, Maintenance, Enhancement and Production Support.",
-			"url": "#home",
+			"url": "https://github.com/HarikaShekhar/FE-Nanodegree-Project-0",
 			// TODO: Update Images
 			"images": [
 				"images/capitalOne-1.png",
@@ -219,7 +220,7 @@ var projects = {
 			"title": "Charles Schwab : CRT Letters  development, maintenance and Support",
 			"dates": "2010 February - 2010 December",
 			"description": "Client Reporting Technology is a batch application that creates monthly, quarterly and yearly brokerage Letters for Schwab customers. It is hosted on the IBM Mainframe. Letters applications is one of the critical regulatory applications for Schwab wherein all the customer letters must be delivered within 7 days of generation. Letters extract the required data from the upstream Schwab applications and formats into the customer letters using 3rd party formatting tools — DOC1 and Dialogue. This project involves providing Maintenance, Enhancement and Production Support for the statement application. <br><br>It is a multi-tier project. It has different platforms involved such as UNIX/LINUX, Mainframes and different technologies such as JAVA, bash Scripting, COBOL.",
-			"url": "#home",
+			"url": "https://github.com/HarikaShekhar/FE-Nanodegree-Project-0",
 			// TODO: Update Images
 			"images": [
 				"images/charlesSchwab-1.png",
@@ -247,12 +248,19 @@ var projects = {
 
 projects.display();
 
+var locationDescriptions = {
+	"San Jose": "San Jose, sometimes spelled San José, is the third-largest city by population in California, the tenth-largest by population in the United States, and the county seat of Santa Clara County. San Jose is the largest city within the Bay Area and the largest city in Northern California.<br/> Before the arrival of the Spanish, the area around San José was inhabited by the Ohlone people. San Jose was founded on November 29, 1777, as San José de Guadalupe, the first civilian town in the Spanish colony of Alta California. The city served as a farming community to support Spanish military installations at San Francisco and Monterey. When California gained statehood in 1850, San Jose served as its first capital.<br/> After more than 150 years as a small farming community, the San Jose area in the mid-20th century contained some of the last undeveloped land near San Francisco Bay. It then began to experience rapid population growth, much of it coming from veterans returning from World War II. San Jose then continued its aggressive expansion during the 1950s and 1960s by annexing more land area. The rapid growth of the high-technology and electronics industries further accelerated the transition from an agricultural center to an urbanized metropolitan area.",
+	"Hyderabad": "Hyderabad is the capital of the southern Indian state of Telangana and de jure capital of Andhra Pradesh. Occupying 625 square kilometres (241 sq mi) along the banks of the Musi River, it has a population of about 6.8 million and a metropolitan population of about 7.75 million, making it the fourth most populous city and sixth most populous urban agglomeration in India. At an average altitude of 542 metres (1,778 ft), much of Hyderabad is situated on hilly terrain around artificial lakes, including Hussain Sagar—predating the city's founding—north of the city centre.<br/> Established in 1591 by Muhammad Quli Qutb Shah, Hyderabad remained under the rule of the Qutb Shahi dynasty for nearly a century before the Mughals captured the region. In 1724, Mughal viceroy Asif Jah I declared his sovereignty and created his own dynasty, known as the Nizams of Hyderabad. The Nizam's dominions became a princely state during the British Raj, and remained so for 150 years, with the city serving as its capital. The city continued as the capital of Hyderabad State after it was brought into the Indian Union in 1948, and became the capital of Andhra Pradesh after the States Reorganisation Act, 1956. Since 1956, Rashtrapati Nilayam in the city has been the winter office of the President of India. In 2014, the newly formed state of Telangana split from Andhra Pradesh and the city became joint capital of the two states, a transitional arrangement scheduled to end by 2025."
+}
+
 $("#contacts").click(function(){
 	$("#topContacts").fadeToggle("slow");
+	$(".flex-item").css("display", "inline-block");
 });
 
 $("#skills-btn").click(function(){
 	$("#skills-h3, #skills").fadeToggle("slow");
+	$(".flex-item").css("display", "inline-block");
 });
 
 $("#letsConnect").append(internationalizeButton);
@@ -263,3 +271,33 @@ function inName() {
 }
 
 $("#mapDiv").append(googleMap);
+
+$(document).ready(function() {
+	var headerHeight = (($(window).height()) - 61);
+	$("#header").height(headerHeight);
+    $(".scrollfade").animate({opacity: "1"}, 2000);
+    $(window).scroll(function() {
+        var target = $("#header"),
+            targetHeight = target.outerHeight();
+        var scrollPercent = 0;
+        scrollPercent = (targetHeight-$(document).scrollTop())/targetHeight;
+        if (scrollPercent >= 0.1) {
+            target.css('opacity', scrollPercent);
+
+            var top = ($(document).scrollTop() > 0) ? $(document).scrollTop() : 1;
+            $('#header').fadeTo(0, 20 / top);
+        }
+    });
+
+    window.setTimeout(function() {
+        $("hr").animate({
+            opacity: "1"
+        }, 1000);
+    }, 1000);
+
+    window.setTimeout(function() {
+        $("#topContacts, .biopic, .welcome-message, #skillsH3, #skills, #contacts, #skills-btn").animate({
+            opacity: "1"
+        }, 1000);
+    }, 2000);
+});
