@@ -296,7 +296,7 @@ $(document).ready(function() {
     }, 1000);
 
     window.setTimeout(function() {
-        $("#topContacts, .biopic, .welcome-message, #skillsH3, #skills, #contacts, #skills-btn").animate({
+        $("#topContacts, .biopic, .welcome-message, #skills-h3, #skills, #contacts, #skills-btn").animate({
             opacity: "1"
         }, 1000);
     }, 2000);
