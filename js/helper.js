@@ -12,8 +12,8 @@ replace the %data% placeholder text you see in them.
 // TODO: Make sure that there are no unused variables and remove default comments. Check replaces for %data% and %contact%.
 
 
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span class="text-muted">%data%</span><hr/>';
+var HTMLheaderName = '<h1 id="name" class="scrollfade">%data%</h1>';
+var HTMLheaderRole = '<span class="text-muted scrollfade">%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -24,10 +24,11 @@ var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic col-sm-3 col-xs-3 img-responsive" alt="An avatar picture">';
-var HTMLwelcomeMsg = '<span class="welcome-message col-sm-9 col-xs-9">%data%</span>';
+var HTMLwelcomeMsg = '<span class="welcome-message col-sm-9">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3" class="col-sm-12 col-xs-12">Skills at a Glance:</h3><ul id="skills" class="flex-box col-sm-12 col-xs-12"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLglyphicon = '<a class="cover-arrow" href="#workExperience"><span class="glyphicon glyphicon-chevron-down"></span></a>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -165,17 +166,36 @@ function initializeMap() {
       title: name
     });
 
+    var loc_names = name.split(",");
+    var current_location = loc_names[0];
+    console.log(loc_names[0]);
+
+     var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h4 id="firstHeading" class="firstHeading">' + name + '</h4>'+
+      '<div id="bodyContent">'+
+      '<p>' + locationDescriptions[current_location] + '</p>' +
+      '</div>'+
+      '</div>';
+
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: contentString,
+      maxWidth: 700
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
       infoWindow.open(map, marker);
+    });
+
+    marker.addListener('click', function() {
+      map.setZoom(8);
+      map.setCenter(marker.getPosition());
     });
 
     // this is where the pin actually gets added to the map.
